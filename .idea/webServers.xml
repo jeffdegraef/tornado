@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="c73a9c30-0112-4ff0-915a-e889779bd7f1" name="AWS" url="http://ec2-54-200-239-15.us-west-2.compute.amazonaws.com">
+        <fileTransfer host="ec2-54-200-239-15.us-west-2.compute.amazonaws.com" port="22" privateKey="C:\Users\Jozef.DeGraef\Google Drive\Arduino\AWS\React.pem" accessType="SFTP" username="ubuntu" keyPair="true">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" />
+          </advancedOptions>
+          <option name="port" value="22" />
+        </fileTransfer>
+      </webServer>
+    </option>
+  </component>
+</project>
