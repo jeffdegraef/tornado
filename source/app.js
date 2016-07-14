@@ -7,6 +7,7 @@ var ReactClass = React.createClass(
     {
         getInitialState: function ()
         {
+            console.info("Initializing...");
             return {
             isHeaderHidden: false,
             title: 'statefull react component'

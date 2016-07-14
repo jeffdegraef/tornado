@@ -1,0 +1,78 @@
+
+/*
+@media screen and (max-width: 370px) {
+  .navbar-brand {
+    padding: 8px 0 8px 8px;
+    line-height: 0;
+    height: 100%;
+    width: 70%;
+  }
+}
+*/
+.featureTitle {
+	color: white;	
+}
+
+.custom-button-ttb {
+	display: inline-block;
+	text-align: center;
+	padding: 13px 35px 13px 35px;
+	width: 150px;
+	border-radius: 4px;
+	margin: 4px;
+	border: none;
+}
+
+.input-text-ttb {
+	width: 150px;
+	border: 1px solid gray;
+}
+
+.orange-text {
+	color: #FF7F00;
+}
+
+/*---------------------------------------
+ **   SECTION:  The idea              -----
+-----------------------------------------*/
+
+.the-idea{
+	background: #939393;
+	color: #000;
+	padding-bottom: 0px;
+}
+.the-idea .big-intro {
+	text-align: right;
+	font-weight: 300;
+	font-size: 40px;
+	line-height: normal;
+	margin-top: -15px;
+}
+
+ 
+.the-idea p, .the-idea ul,.the-idea li {
+	text-align: left;
+	color: #FFFFFF;
+}
+.the-idea li {
+	list-style-type:disc;
+	list-style-position: inside;
+}
+
+.the-idea  a {
+	color: #FFFFFF;
+	-webkit-transition: all 700ms;
+	transition: all 700ms;
+}
+/*
+.the-idea a, .the-idea  a:hover {
+	text-decoration: none;
+}
+*/
+.the-idea a:hover {
+	color: #000;
+}
+
+.the-idea .column {
+	margin-bottom: 78px;
+}

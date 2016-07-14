@@ -1,0 +1,890 @@
+<!doctype html>
+<html lang="en">
+
+
+<head>
+<meta charset="UTF-8">
+<meta name="description" content="Norsonic at jeff" />
+<meta name="keywords" content="Raspberry PI, NodeJS, node-RED, IoT, Norsonic"/>
+<meta name="author" content="Jeff De Graef" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Norsonic Node Project</title>
+
+<!-- Twitter card
+https://dev.twitter.com/cards/overview
+https://dev.twitter.com/cards/types/product
+https://dev.twitter.com/cards/markup
+https://cards-dev.twitter.com/validator   http://sandbox.digitalairways.com/thethingbox-test
+
+
+<meta name="twitter:card" content="product">
+<meta name="twitter:site" content="@thethingbox">
+<meta name="twitter:title" content="The Thingbox Project: Internet of Things for everybody">
+<meta name="twitter:description" content="For non-technical people, the Thingbox provides a graphical interface to take fully advantage the Internet of Things.">
+<meta name="twitter:image" content="images/node-red-screenshot.png">
+<meta name="twitter:label1" content="Easy to use graphical interface">
+<meta name="twitter:data1" content="...based on IBM Node-RED">
+<meta name="twitter:label2" content="Easy to install">
+<meta name="twitter:data2" content="...just write a SDCard for a Raspberry Pi">
+-->
+<!-- =========================
+FAV AND TOUCH ICONS  
+
+<link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+<link rel="apple-touch-icon" href="images/icons/apple-touch-icon.png" />
+<link rel="apple-touch-icon" sizes="57x57" href="images/icons/apple-touch-icon-57x57.png" />
+<link rel="apple-touch-icon" sizes="72x72" href="images/icons/apple-touch-icon-72x72.png" />
+<link rel="apple-touch-icon" sizes="76x76" href="images/icons/apple-touch-icon-76x76.png" />
+<link rel="apple-touch-icon" sizes="114x114" href="images/icons/apple-touch-icon-114x114.png" />
+<link rel="apple-touch-icon" sizes="120x120" href="images/icons/apple-touch-icon-120x120.png" />
+<link rel="apple-touch-icon" sizes="144x144" href="images/icons/apple-touch-icon-144x144.png" />
+<link rel="apple-touch-icon" sizes="152x152" href="images/icons/apple-touch-icon-152x152.png" />
+============================== -->
+<!-- =========================
+ STYLESHEETS      
+============================== -->
+<link rel="stylesheet" href="css/bootstrap.min.css">
+<link rel="stylesheet" href="css/owl.theme.css">
+<link rel="stylesheet" href="css/owl.carousel.css">
+<link rel="stylesheet" href="css/jquery.vegas.min.css">
+<link rel="stylesheet" href="css/animate.min.css">
+
+<link rel="stylesheet" href="assets/icon-fonts/styles.css"> <!-- http://fortawesome.github.io/Font-Awesome/cheatsheet/ ??? -->
+<link rel="stylesheet" href="css/pixeden-icons.css">
+
+<!-- CUSTOM STYLES -->
+<link rel="stylesheet" href="css/styles.css">
+<link rel="stylesheet" href="css/responsive.css">
+<link rel="stylesheet" href="css/thethingbox.css">
+
+<!-- WEBFONT -->
+<link href='fonts/AvenirNextLTPro.css' rel='stylesheet' type='text/css'>
+
+<!--[if lt IE 9]>
+		<script src="js/html5shiv.js"></script>
+		<script src="js/respond.min.js"></script>
+	<![endif]-->
+
+<!-- JQUERY -->
+<script src="jqueryui/jquery.min.js"></script>
+
+<!-- GOOGLE ANALYTICS 
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','../www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-49929254-1', 'auto');
+  ga('send', 'pageview');
+</script>
+-->
+</head>
+
+
+<body>
+<!-- =========================
+PRE LOADER       
+============================== -->
+<div class="preloader">
+<div class="status">&nbsp;</div>
+</div>
+
+<!-- =========================
+HOME SECTION       
+============================== -->
+<header id="home" class="header">
+
+	<!-- TOP BAR -->
+	<div id="main-nav" class="navbar navbar-inverse bs-docs-nav" role="banner">
+		<div class="container">
+			<!--
+			<div class="navbar-header responsive-logo">
+				<button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target="#bs-navbar-collapse">
+					<span class="sr-only">Toggle navigation</span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button>
+
+				
+				<img src="images/logo.png">
+			</div>
+			-->
+			<nav class="navbar-collapse collapse" role="navigation" id="bs-navbar-collapse">
+				<ul class="nav navbar-nav navbar-right responsive-nav main-nav-list">
+				<li><a href="#home" style="text-decoration: none">Home</a></li>
+				<li><a href="#idea" style="text-decoration: none">The idea</a></li>
+				<li><a href="#packagestable" style="text-decoration: none">Configure and Order</a></li>
+				<li><a href="#documentation" style="text-decoration: none">Documentation</a></li>
+				<li><a href="#contact" style="text-decoration: none">Contact!</a></li>
+				</ul>
+			</nav>
+		</div>
+	</div>
+	<!-- / END TOP BAR -->
+
+	<div class="container">
+
+		<!-- HEADING -->
+		<h1 class="intro" style="color: #FFF">
+		The Norsonice sound measurement Project
+		</h1><br/>
+		<h3 class="white-text">
+		Use Internet of Things technologies <br />
+		to enrich Sound detection reporting and trending.
+		</h3>
+	</div> <!-- / END BIG HEADING WITH CALL TO ACTION BUTTONS AND SHORT MESSAGES  -->
+
+</header> <!-- / END HOME SECTION  -->
+
+<!-- =========================
+   The idea SECTION  (model: ABOUT US SECTION )
+============================== -->
+
+<section id="idea" class="the-idea" style='padding-top: 100px;padding-bottom: 50px'>
+<div class="container">
+
+	<!-- SECTION HEADER -->
+	<div class="section-header">
+
+		<!-- SECTION TITLE -->
+		<h2 class="text">The idea</h2>
+
+		<!-- SHORT DESCRIPTION ABOUT THE SECTION -->
+		<h6 class="white-text">
+			The Internet of Things technologies installed and running on a Raspberry Pi, easy to use with a graphical interface
+		</h6>
+	</div>
+	<!-- / END SECTION HEADER -->
+
+
+	<div class="row"> <!--  COLUMNS -->
+
+		<!-- COLUMN 1 - BIG MESSAGE ABOUT THE COMPANY-->
+		<div class="col-lg-6 col-sm-5 column">
+			<div class="big-intro wow fadeInLeft animated" data-wow-offset="30" data-wow-duration="1.5s" data-wow-delay="0.15s">
+				This project provides the ability to <b>measure</b><br/> and report on soundlevels.<br/>
+			</div>
+
+		</div>
+
+		<!-- COLUMN 2 - BRIEF ABOUT THE COMPANY-->
+			<div class="skills wow fadeInRight animated" data-wow-offset="30" data-wow-duration="1.5s" data-wow-delay="0.15s">
+			<h5 style='text-align:left;margin-top:0px'>What is this project all about</h5>
+			<p>
+			This project is a set of software already installed and configured.
+			</p>
+			<p>
+			It allows anyone to graphically configure sound measurements using Norsonic devices from a simple web-browser.
+			</p>
+
+			<img style='width:500px;margin-top:15px; margin-bottom:15px; margin-left:20px' src='images/node-red-screenshot.png'  class="responsive-logo"><br/>
+
+		</div>
+	</div> <!-- / END COLUMNS -->
+	
+	<br/><br/>
+	
+	<div class="row"> <!--  COLUMNS -->
+
+		<!-- COLUMN 1 - BIG MESSAGE ABOUT THE COMPANY-->
+		<div class="col-lg-6 col-sm-5 column">
+			<div class="big-intro wow fadeInLeft animated" data-wow-offset="30" data-wow-duration="1.5s" data-wow-delay="0.15s">
+				<img border='1' style="border:5px solid #ccc;" src="images/ttb.jpg" class="responsive-logo"/>
+			</div>
+		</div>
+
+		<!-- COLUMN 2 - BRIEF ABOUT THE COMPANY-->
+		<div class="skills wow fadeInRight animated" data-wow-offset="30" data-wow-duration="1.5s" data-wow-delay="0.15s">
+			<h5 style='text-align:left;margin-top:0px'>Dedicated to</h5>
+
+			<ul>
+			<li><b>For non-technical people</b>, this project provides in single easy steps a graphical interface to take fully advantage the Internet of Things and Norsonic functionality.</li>
+			<li><b>For technical people</b>, the project is a ready to use device released under the <a href="http://www.wtfpl.net/">WTFPL</a> licence 
+			(the  WTFPL is a very permissive license for software and other scientific or artistic works that offers a huge degree of freedom). <br/>
+			Use it to build you projects. There is no associated licence fee.</li>
+			</ul>
+
+
+			<h5 style='text-align:left;margin-top:0px'>What this project is NOT</h5>
+			<p>This project is not a (yet another) new home automation box. It's purpose is to help create new usages that go far beyond home automation, more specifically leveraging on the Raspberry pi platform to enable advanced sound measurment with cutting edge technology from Norsonic.</p>
+
+			<h5 style='text-align:left;margin-top:15px'>Why the Raspberry Pi?</h5>
+			<p>
+			You need a full time running computer. And it cannot be in the cloud since it should be near the things you want to manage and monitor. Although an ordinary computer can be used for this, many people prefer the tiny, affordable Raspberry-Pi.
+			</p>
+		</div>
+		
+	</div> <!-- / END COLUMNS -->
+	
+	
+</div> <!-- / END CONTAINER -->
+
+</section> <!-- END the-idea SECTION -->
+
+
+<!-- =========================
+   TESTIMONIAL
+============================== -->
+
+<section id="testimonials" class="testimonial" style="background:#605F5D;">
+<div class="container">
+
+	  <!-- SECTION HEADER -->
+        <div class="section-header">
+
+		<!-- SECTION TITLE -->
+		<h2 class="white-text">Testimonials</h2>
+
+		<!-- SHORT DESCRIPTION ABOUT THE SECTION -->
+		<h6 class="white-text">
+			See what our awesome happy users say about us and let us show you some amazing graphs too.
+		</h6>
+	</div>
+	<!-- / END SECTION HEADER -->
+
+	<!-- CLIENT FEEDBACKS -->
+	<div class="row wow fadeInRight animated" data-wow-offset="30" data-wow-duration="1.5s" data-wow-delay="0.15s">
+		<div class="col-md-12">
+			<div id="client-feedbacks" class="owl-carousel owl-theme">
+
+
+				<!-- SINGLE FEEDBACK BOX-->
+				<div class="feedback-box">
+
+					<!-- MESSAGE OF THE CLIENT -->
+					<div class="message">
+						 “Thingbox is totally awsome by the way. I am telling everyone I know about it.”
+					</div>
+
+					<!-- CLIENT INFORMATION -->
+					<div class="client">
+						<div class="quote green-text">
+							<i class="icon-fontawesome-webfont-294"></i>
+						</div>
+						<div class="client-info">
+							<a class="client-name" href="#">Mathias</a>
+							<div class="client-company">
+
+							</div>
+						</div>
+
+					</div> <!-- / END CLIENT INFORMATION-->
+				</div> <!-- / END SINGLE FEEDBACK BOX-->
+
+
+				<!-- SINGLE FEEDBACK BOX-->
+				<div class="feedback-box">
+
+					<!-- MESSAGE OF THE CLIENT -->
+					<div class="message">
+						  “Customer comment.”
+					</div>
+
+					<!-- CLIENT INFORMATION -->
+					<div class="client">
+						<div class="quote blue-text">
+							<i class="icon-fontawesome-webfont-294"></i>
+						</div>
+						<div class="client-info">
+							<a class="client-name" href="#">customer name</a>
+							<div class="client-company">
+
+							</div>
+						</div>
+
+					</div> <!-- / END CLIENT INFORMATION-->
+				</div> <!-- / END SINGLE FEEDBACK BOX-->
+
+				<!-- SINGLE FEEDBACK BOX-->
+				<div class="feedback-box">
+
+					<!-- MESSAGE OF THE CLIENT -->
+					<div class="message">
+						 “We could also include some measurement graphs in here”
+					</div>
+
+					<!-- CLIENT INFORMATION -->
+					<div class="client">
+						<div class="quote red-text">
+							<i class="icon-fontawesome-webfont-294"></i>
+						</div>
+						<div class="client-info">
+							<a class="client-name" href="#">chart name</a>
+							<div class="client-company">
+
+							</div>
+						</div>
+
+					</div> <!-- / END CLIENT INFORMATION-->
+				</div> <!-- / END SINGLE FEEDBACK BOX-->
+			
+
+				<!-- SINGLE FEEDBACK BOX-->
+				<div class="feedback-box">
+
+					<!-- MESSAGE OF THE CLIENT -->
+					<div class="message">
+						 “Yet another customer comment.”
+					</div>
+
+					<!-- CLIENT INFORMATION -->
+					<div class="client">
+						<div class="quote red-text">
+							<i class="icon-fontawesome-webfont-294"></i>
+						</div>
+						<div class="client-info">
+							<a class="client-name" href="#">customer name</a>
+							<div class="client-company">
+
+							</div>
+						</div>
+
+					</div> <!-- / END CLIENT INFORMATION-->
+				</div> <!-- / END SINGLE FEEDBACK BOX-->
+				
+				<!-- SINGLE FEEDBACK BOX-->
+				<div class="feedback-box">
+
+					<!-- MESSAGE OF THE CLIENT -->
+					<div class="message">
+						 “Yet another graph.”
+					</div>
+
+					<!-- CLIENT INFORMATION -->
+					<div class="client">
+						<div class="quote blue-text">
+							<i class="icon-fontawesome-webfont-294"></i>
+						</div>
+						<div class="client-info">
+							<a class="client-name" href="#">graph name</a>
+							<div class="client-company">
+
+							</div>
+						</div>
+
+					</div> <!-- / END CLIENT INFORMATION-->
+				</div> <!-- / END SINGLE FEEDBACK BOX-->
+
+				<div class="feedback-box">
+					<div class="message">
+						 “some trending data perhaps?”
+					</div>
+					<div class="client">
+						<div class="quote green-text">
+							<i class="icon-fontawesome-webfont-294"></i>
+						</div>
+						<div class="client-info">
+							<a class="client-name" href="#">trending data name</a>
+							<div class="client-company">
+
+							</div>
+						</div>
+
+					</div>
+				</div>
+
+				<div class="feedback-box">
+					<div class="message">
+						 “More testimonials.”
+					</div>
+					<div class="client">
+						<div class="quote blue-text">
+							<i class="icon-fontawesome-webfont-294"></i>
+						</div>
+						<div class="client-info">
+							<a class="client-name" href="#">customer</a>
+							<div class="client-company">
+
+							</div>
+						</div>
+
+					</div>
+				</div>
+
+				<div class="feedback-box">
+					<div class="message">
+						 “More testimonials.”
+					</div>
+					<div class="client">
+						<div class="quote red-text">
+							<i class="icon-fontawesome-webfont-294"></i>
+						</div>
+						<div class="client-info">
+							<a class="client-name" href="#">customer</a>
+							<div class="client-company">
+
+							</div>
+						</div>
+
+					</div>
+				</div>
+
+				<div class="feedback-box">
+					<div class="message">
+						 “More testimonials.”
+					</div>
+					<div class="client">
+						<div class="quote blue-text">
+							<i class="icon-fontawesome-webfont-294"></i>
+						</div>
+						<div class="client-info">
+							<a class="client-name" href="#">customer</a>
+							<div class="client-company">
+
+							</div>
+						</div>
+
+					</div>
+				</div>
+
+
+
+			</div> <!-- / END FEEDBACKS-->
+		</div> <!-- / END COLUMN -->
+	</div> <!-- / END ROW -->
+
+</div> <!-- / END CONTAINER -->
+</section> <!-- / END SECTION -->
+
+
+
+<!-- =========================
+   Build SECTION
+============================== -->
+
+<section id="packagestable" class="the-idea"  style='padding-top: 100px'>
+<div class="container">
+
+	<!-- SECTION HEADER -->
+	<div class="section-header">
+
+		<!-- SECTION TITLE -->
+		<h2 class="text">How to get a Norsonic sound measurement solution</h2>
+
+		<!-- SHORT DESCRIPTION ABOUT THE SECTION -->
+		<h6 class="white-text">
+			It could not be easier
+		</h6>
+	</div>
+	<!-- / END SECTION HEADER -->
+
+	<div class="row"> <!--  COLUMNS -->
+
+
+		<!-- COLUMN 1 - BIG MESSAGE ABOUT THE COMPANY-->
+		<div class="col-lg-6 col-sm-5 column">
+			<h2 class="big-intro wow fadeInLeft animated" data-wow-offset="30" data-wow-duration="1.5s" data-wow-delay="0.15s">
+				Build your Sound measurement box configuration ...
+			</h2>
+		</div>
+
+		<!-- COLUMN 2 - BRIEF ABOUT THE COMPANY-->
+		<div class="skills wow fadeInRight animated" data-wow-offset="30" data-wow-duration="1.5s" data-wow-delay="0.15s">
+			<p>Just Just fill in this form and provide us the details of your requirements, the form can be found <a href="#documentation">here</a>.</p>
+			<p>Use the links below to download our datasheets and reference cases.</p>
+			
+			
+		</div>
+		
+	</div> <!-- / END COLUMNS -->
+	
+
+</div> <!-- / END CONTAINER -->
+</section> <!-- / END SECTION -->
+
+<!-- =========================
+   PACKAGES SECTION
+============================== -->
+
+<section class="packages">
+
+<div class="container">
+
+	<!-- PACKAGES -->
+	<div class="row">
+
+
+	<!-- package Pi2 -->
+	<div class="col-lg-3 col-sm-3">
+		<div class="package wow fadeInLeft animated" data-wow-offset="30" data-wow-duration="1.5s" data-wow-delay="0.15s">
+			<div class="package-header blue-bg">
+				<h3>Cutomer brochure</h3>
+			</div>
+				
+			<div class="price-container blue-bg white-text">
+				<div style="background-image: url('images/sdcard.png');background-repeat: no-repeat;margin-left:10px">
+					<br>
+					<h5>Version 1.8.6<br>Release date<br>2016 march 21</h5>
+					<br><br><br><br><br>
+				</div>
+			</div>
+			
+			<button id="button_download_package2" class="btn btn-primary custom-button-ttb blue-btn">Download</button>
+
+		<!--   form mailing list -->
+		<div id ="package2" class="pack-form">
+				<input type="hidden" name="usingAJAX" value="false" />
+				<input type="text" id="email_package2" placeholder="Please enter email" class="form-control input-text-ttb input-box" style='margin-top: 10px;border-style:solid' name="email">
+				<button id="button_submit_package2" class="btn btn-primary custom-button-ttb red-btn">Download</button>
+		</div>
+
+		<script>
+			$( document ).ready( function() {
+				$('#package2').hide();
+			});
+
+
+			$('#button_download_package2').click(function(){
+				$(this).hide();
+				$('#package2').show();
+			});
+
+			$('#button_submit_package2').click(function(event){
+					$.get( "HandlerMailingList", $("#email_package2"),function(){
+					window.location.href = "downloadCustomerBrochure.html";
+				});
+			});			
+
+		</script>
+		<!-- / form mailing list -->
+		</div>
+	</div> <!-- / END package Pi2 -->
+
+
+
+	</div> <!-- / END PACKAGES -->
+</div> <!--END CONTAINER  -->
+
+</section> <!-- END PACKAGES SECTION -->
+
+
+
+<!-- =========================
+TSA
+============================== -->
+
+<section id="what" class="the-idea-onwhite" style='padding-top: 50px; padding-bottom: 50px; background-color: #FFF'>
+	<div class="container">
+
+	<div class="row"> <!--  COLUMNS -->
+
+		<!-- COLUMN 1 - BIG MESSAGE ABOUT THE COMPANY-->
+
+		<div class="col-lg-6 col-sm-5 column">
+			<h2 class="big-intro wow fadeInLeft animated" data-wow-offset="30" data-wow-duration="1.5s" data-wow-delay="0.15s">
+				... come buy one!
+			</h2>
+			<p>You can buy an already built Norsonic measurement box via our webshop.</p>
+			<br/><br/>
+			<a href='http://www.norsonic.be/' target ='tsa'>
+				<img src='../130.211.99.242_8080/TimeSquAir/images/091015_39.jpg' class="responsive-logo" width='500'>
+			</a>
+		</div>
+
+		<!-- COLUMN 2 - BRIEF ABOUT THE COMPANY-->
+		<div class="skills wow fadeInRight animated" data-wow-offset="30" data-wow-duration="1.5s" data-wow-delay="0.15s">
+			
+			
+			<p>
+			<a href='http://www.norsonic.be/' style="text-decoration:none" target ='_blank'>
+			<img src="images/logo_Norsonic_Benelux.png" width="200" alt="TimeSquAir" border=1/>
+			</a> 
+			</p>
+			<p>
+			is a Norsonic cerfied partner able to help you to take sound measurement to the next level.
+			</p>
+			
+			<p>
+			All components are wired in a solid box, ready to plug and play, with its user guide and tutorials illustrating each example. 
+			The package also contains an Internet access modem, a sound cable, a solar power option.
+			</p>
+			<br>
+			<p>
+				Read more about it here: <a href='http://www.norsonic.be/' target ='tsa' style="text-decoration:none">Norsonic Benelux</a>.
+			</p>
+		</div>
+		
+	</div> <!-- / END COLUMNS -->
+
+
+</div> <!-- / END CONTAINER -->
+
+</section> <!-- END the-idea SECTION -->
+
+<!-- =========================
+   DOCUMENTATION SECTION
+============================== -->
+<section class="features" id="documentation" style='padding-top: 100px'>
+<div class="container">
+
+		<!-- SECTION HEADER -->
+	<div class="section-header">
+
+		<!-- SECTION TITLE -->
+		<h2 class="white-text">Documentation</h2>
+
+		<!-- SHORT DESCRIPTION ABOUT THE SECTION -->
+		<h6 class="white-text">
+			Need some help? Get the documentation!
+		</h6>
+	</div>
+	<!-- / END SECTION HEADER -->
+
+	<!-- documentation -->
+	<div class="row">
+
+		<!-- Documentation gauche-->
+		<div class="col-md-6 col-sm-6 wow fadeInLeft animated" data-wow-offset="30" data-wow-duration="1.5s" data-wow-delay="0.15s">
+
+<div class="feature">
+	<a target="_blank" href="docs/whatsnew.html" style="text-decoration: none">
+	<div class="feature-icon">
+		<i class="icon-file-text"></i>
+	</div>
+		<h6 class="white-text">What's New</h6>
+		<p class="white-text">
+			Discover what's new in the last release.
+		</p>
+	</a>
+</div>
+
+		</div> <!-- Documentation gauche-->
+
+		<!-- Documentation centre -->
+		<xdiv class="col-md-6 col-sm-6 wow fadeInLeft animated" data-wow-offset="30" data-wow-duration="1.5s" data-wow-delay="0.15s">
+
+<div class="feature">
+	<a target="_blank" href="docs/faq.html" style="text-decoration: none">
+	<div class="feature-icon">
+		<i class="icon-file-text"></i>
+	</div>
+		<h6 class="white-text">FAQ</h6>
+		<p class="white-text">
+			Consult the Frequently Asked Questions.
+		</p>
+	</a>
+</div>
+
+		</xdiv> <!-- Documentation centre -->
+
+		<!-- Documentation droite -->
+		<div class="col-md-6 col-sm-6 wow fadeInRight animated" data-wow-offset="30" data-wow-duration="1.5s" data-wow-delay="0.15s">
+
+<div class="feature">
+	<a target="_blank" href="docs/index.html" style="text-decoration: none">
+	<div class="feature-icon">
+		<i class="icon-file-text"></i>
+	</div>
+		<h6 class="white-text">The ThingBox documentation</h6>
+		<p class="white-text">
+			All the steps to buy a Norsonic Sound Measurement box, prepare it and to enjoy tutorials!
+		</p>
+	</a>
+</div>
+
+		</div> <!-- Documentation droite -->
+
+			</div>
+</div>
+</section> <!-- / END DOCUMENTATION SECTION -->
+
+<!-- =========================
+   DonateBTC SECTION
+============================== -->
+
+<section class="the-idea" style='padding-top: 100px;padding-bottom: 50px'>
+<div class="container">
+
+	<div class="row"> <!--  COLUMNS -->
+
+		<!-- COLUMN 1 - BIG MESSAGE ABOUT THE COMPANY-->
+		<div class="col-lg-6 col-sm-5 column">
+			<div class="big-intro wow fadeInLeft animated" data-wow-offset="30" data-wow-duration="1.5s" data-wow-delay="0.15s">
+				Pay a beer<br>to the Norsonic team !
+			</div>
+		</div>
+
+		<!-- COLUMN 2 - BRIEF ABOUT THE COMPANY-->
+			<div class="skills wow fadeInRight animated" data-wow-offset="30" data-wow-duration="1.5s" data-wow-delay="0.15s">
+
+			<h4>Let us know were me can meet up and discuss how we can help you out!</h4>
+			
+
+		</div>
+	</div> <!-- / END COLUMNS -->
+</div> <!-- / END CONTAINER -->
+
+</section> <!-- END the-idea SECTION -->
+
+
+<!-- =========================
+   NEWSETTER
+============================== -->
+
+<section id="contact" class="newsletter" style='padding-top: 100px'>
+<div class="container">
+	<h2 class="white-text wow fadeInLeft animated" data-wow-offset="30" data-wow-duration="1.5s" data-wow-delay="0.15s">Keep in touch</h2> <!-- NEWSLETTER SECTION HEADING -->
+	<div class="sub-heading white-text wow fadeInRight animated" data-wow-offset="30" data-wow-duration="1.5s" data-wow-delay="0.15s">
+		 Sign up for (unfrequent) email Updates or News
+	</div>
+
+	<!-- SUBSCRIPTION FORM -->
+
+            <div id='newsletterresult'>
+                <h2 class="orange-text"></h2>
+            </div>
+
+	<form id="newsletterform" class="subscription wow fadeInLeft animated" data-wow-offset="30" data-wow-duration="1.5s" data-wow-delay="0.15s" role="form">
+		<input type="hidden" name="usingAJAX" value="false" />
+		<input type="email" placeholder="Enter email" class="form-control input-box" name="email">
+		<button class="btn btn-primary custom-button red-btn">Sign Up</button>
+	</form>
+
+	<script>
+			$('#newsletterform').submit(function(event){
+
+				var $this = $(this);
+				$this.hide();
+				// we want to submit the form using Ajax (prevent page refresh)
+				event.preventDefault();
+
+				// this is where your validation code (if any) would go
+
+				// this tells the server-side process that Ajax was used
+				$('input[name="usingAJAX"]',this).val( 'true' );
+				// store reference to the form
+				//var $this = $(this);
+				// prepare the form data to send
+				var dataToSend = $this.serialize();
+				// the callback function that tells us what the server-side process had to say
+				var callback = function(dataReceived){
+					// hide the form (thankfully we stored a reference to it)
+					//$this.hide();
+				// in our case the server returned an HTML snippet so just append it to the DOM
+				// expecting: <div id="result">Your favorite food is pizza! Thanks for telling us!</div>
+					$('#newsletterresult').html(dataReceived)
+				};
+			// now send the form and wait to hear back
+			$.get( "HandlerMailingList", dataToSend, callback, 'html' )
+			}); // close .submit()
+		</script>
+	<!-- / END SUBSCRIPTION FORM -->
+
+</div> <!-- / END CONTAINER -->
+</section> <!-- / END NEWSLETTER SECTION -->
+
+<!-- =========================
+   CONTACT US
+============================== -->
+
+<section class="contact-us" style='padding-top: 100px'>
+<div class="container">
+
+	<!-- SECTION HEADER -->
+        <div class="section-header">
+
+		<!-- SECTION TITLE -->
+		<h2 class="white-text">Get in touch</h2>
+
+		<!-- SHORT DESCRIPTION ABOUT THE SECTION -->
+		<h6 class="white-text">
+			Have any questions? Drop us a message. We will get back to you as soon as possible.
+		</h6>
+
+	</div>
+	<!-- / END SECTION HEADER -->
+
+<!-- =========================
+   CONTACT FORM
+============================== -->
+	<div class="row">
+
+		<div id='contactresult'><h2 class="orange-text"></h2></div>
+
+		<form id="contactform" class="contact-form" method="get">
+			<input type="hidden" name="usingAJAX" value="false" />
+			<div class="wow fadeInLeft animated" data-wow-offset="30" data-wow-duration="1.5s" data-wow-delay="0.15s">
+			<div class="col-lg-4 col-sm-4">
+				<input type="text" name="name" placeholder="Your Name" class="form-control input-box" required>
+			</div>
+			<div class="col-lg-4 col-sm-4">
+				<input type="email" name="email" placeholder="Your Email" class="form-control input-box" required>
+			</div>
+			<div class="col-lg-4 col-sm-4">
+				<input type="text" name="subject" placeholder="Subject" class="form-control input-box" required>
+			</div>
+			</div>
+
+			<div class="clearfix">
+			<div class="col-md-12 wow fadeInRight animated" data-wow-offset="30" data-wow-duration="1.5s" data-wow-delay="0.15s">
+				<textarea name="message" class="form-control textarea-box" placeholder="Your Message" required></textarea>
+			</div>
+			</div>
+			<button class="btn btn-primary custom-button red-btn wow fadeInLeft animated" id="submit" data-wow-offset="30" data-wow-duration="1.5s" data-wow-delay="0.15s" type="submit">Send Message</button>
+		</form>
+
+		<script>
+
+			$('#contactform').submit(function(event){
+
+				var $this = $(this);
+				$this.hide();
+
+				// we want to submit the form using Ajax (prevent page refresh)
+				event.preventDefault();
+
+				// this is where your validation code (if any) would go
+
+				// this tells the server-side process that Ajax was used
+				$('input[name="usingAJAX"]',this).val( 'true' );
+				// store reference to the form
+				var $this = $(this);
+				// prepare the form data to send
+				var dataToSend = $this.serialize();
+				// the callback function that tells us what the server-side process had to say
+				var callback = function(dataReceived){
+					// hide the form (thankfully we stored a reference to it)
+					$this.hide();
+					// in our case the server returned an HTML snippet so just append it to the DOM, expecting: <div id="result">Your favorite food is pizza!</div>
+					$('#contactresult').html(dataReceived)
+				};
+				// type of data to receive (in our case we're expecting an HTML snippet)
+				var typeOfDataToReceive = 'html';
+				// now send the form and wait to hear back
+				$.get( "HandlerForm", dataToSend, callback, typeOfDataToReceive )
+			}); // close .submit()
+		</script>
+	</div>
+	<!-- / END CONTACT FORM-->
+</div> <!-- / END CONTAINER -->
+</section> <!-- / END CONTACT US SECTION-->
+
+
+
+<!-- =========================
+   FOOTER
+============================== -->
+
+<footer>
+	<div class="container">
+		<a class="white-text" target="_blank" href="http://www.norsonic.be/">
+			© Norsonic Belgium
+		</a>
+	</div>
+	<br />
+</footer> <!-- / END FOOOTER  -->
+
+<!-- SCRIPTS -->
+<script src="js/bootstrap.min.js"></script>
+<script src="js/wow.min.js"></script>
+<script src="js/jquery.nav.js"></script>
+<script src="js/jquery.knob.js"></script>
+<script src="js/owl.carousel.min.js"></script>
+<script src="js/smoothscroll.js"></script>
+<script src="js/jquery.vegas.min.js"></script>
+<script src="js/zerif.js"></script>
+
+</body>
+
+</html>
