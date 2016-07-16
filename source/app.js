@@ -3,6 +3,48 @@
  */
 var React = require('react');
 var ReactDOM = require('react-dom');
+
+/**
+var MainFrame = React.createClass({
+  render: function() {
+    return (
+      <div className="commentBox">
+        <h1>Comments</h1>
+        <Header />
+        <Footer />
+      </div>
+    );
+  }
+});
+
+var Header = React.createClass({
+  render: function() {
+    return (
+      <div className="commentList">
+        Hello, world! I am a CommentList.
+      </div>
+    );
+  }
+});
+
+var Footer = React.createClass({
+  render: function() {
+    return (
+      <div className="commentForm">
+        Hello, world! I am a CommentForm.
+      </div>
+    );
+  }
+});
+
+
+
+var HelloMessage = React.createClass({
+  render: function() {
+    return <h1>Hello {this.props.name}</h1>;
+  }
+});
+ */
 var ReactClass = React.createClass(
     {
         getInitialState: function ()
