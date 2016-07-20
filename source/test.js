@@ -180,41 +180,42 @@ var TheIdeaMainApp = React.createClass(
 
         render: function()
         {
-            return (
-                <section id="idea" class="the-idea" style='padding-top: 100px;padding-bottom: 50px'>
-                    <div class="container">
 
-                        <div class="section-header">
-                                <h2 class="text">The idea</h2>
-                                <h6 class="white-text">
-                                    The Internet of Things technologies installed and running on a Raspberry Pi, easy to use with a graphical interface
-                                </h6>
-                         </div>
-                        <div class="row">
-                            <div class="col-lg-6 col-sm-5 column">
-                                <div class="big-intro wow fadeInLeft animated" data-wow-offset="30" data-wow-duration="1.5s" data-wow-delay="0.15s">
-                                    <img border='1' style="border:5px solid #ccc;" src="{{static_url("images/ttb.jpg")}}" class="responsive-logo"/>
+            return (
+                        <section id="idea" class="the-idea" style='padding-top: 100px;padding-bottom: 50px'>
+                            <div class="container">
+                                <div class="section-header">
+                                        <h2 class="text">The idea</h2>
+                                        <h6 class="white-text">
+                                            The Internet of Things technologies installed and running on a Raspberry Pi, easy to use with a graphical interface
+                                        </h6>
+                                </div>
+                                <div class="row">
+                                    <div class="col-lg-6 col-sm-5 column">
+                                        <div class="big-intro wow fadeInLeft animated" data-wow-offset="30" data-wow-duration="1.5s" data-wow-delay="0.15s">
+                                            <img border='1' style="border:5px solid #ccc;" src="static/images/ttb.jpg")}}" class="responsive-logo"/>
+                                        </div>
+                                    </div>
+                                    <div class="skills wow fadeInRight animated" data-wow-offset="30" data-wow-duration="1.5s" data-wow-delay="0.15s">
+                                        <h5 style='text-align:left;margin-top:0px'>Dedicated to</h5>
+                                        <ul>
+                                            <li><b>For non-technical people</b>, this project provides in single easy steps a graphical interface to take fully advantage the Internet of Things and Norsonic functionality.</li>
+                                            <li><b>For technical people</b>, the project is a ready to use device released under the <a href="http://www.wtfpl.net/">WTFPL</a> licence
+                                            (the  WTFPL is a very permissive license for software and other scientific or artistic works that offers a huge degree of freedom). <br/>
+                                            Use it to build you projects. There is no associated licence fee.</li>
+                                        </ul>
+                                        <h5 style='text-align:left;margin-top:0px'>What this project is NOT</h5>
+                                        <p>This project is not a (yet another) new home automation box. It's purpose is to help create new usages that go far beyond home automation, more specifically leveraging on the Raspberry pi platform to enable advanced sound measurment with cutting edge technology from Norsonic.</p>
+
+                                        <h5 style='text-align:left;margin-top:15px'>Why the Raspberry Pi?</h5>
+                                        <p>
+                                            You need a full time running computer. And it cannot be in the cloud since it should be near the things you want to manage and monitor. Although an ordinary computer can be used for this, many people prefer the tiny, affordable Raspberry-Pi.
+                                        </p>
+                                    </div>
                                 </div>
                             </div>
-                            <div class="skills wow fadeInRight animated" data-wow-offset="30" data-wow-duration="1.5s" data-wow-delay="0.15s">
-                                <h5 style='text-align:left;margin-top:0px'>Dedicated to</h5>
-                                <ul>
-                                    <li><b>For non-technical people</b>, this project provides in single easy steps a graphical interface to take fully advantage the Internet of Things and Norsonic functionality.</li>
-                                    <li><b>For technical people</b>, the project is a ready to use device released under the <a href="http://www.wtfpl.net/">WTFPL</a> licence
-                                    (the  WTFPL is a very permissive license for software and other scientific or artistic works that offers a huge degree of freedom). <br/>
-                                    Use it to build you projects. There is no associated licence fee.</li>
-                                </ul>
-                                <h5 style='text-align:left;margin-top:0px'>What this project is NOT</h5>
-                                <p>This project is not a (yet another) new home automation box. It's purpose is to help create new usages that go far beyond home automation, more specifically leveraging on the Raspberry pi platform to enable advanced sound measurment with cutting edge technology from Norsonic.</p>
-
-                                <h5 style='text-align:left;margin-top:15px'>Why the Raspberry Pi?</h5>
-                                <p>
-                                    You need a full time running computer. And it cannot be in the cloud since it should be near the things you want to manage and monitor. Although an ordinary computer can be used for this, many people prefer the tiny, affordable Raspberry-Pi.
-                                </p>
-                        </div>
-                    </div>
-                </section>
-                );
+                        </section>
+            )
         }
     });
 

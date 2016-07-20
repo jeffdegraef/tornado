@@ -13,7 +13,7 @@ return browserify('./source/app.js')
 });
 
 gulp.task('test', function () {
-return browserify('./source/apptest.js')
+return browserify('./source/test.js')
 .transform(babelify.configure({
   presets: ["react"]
 })).bundle()
