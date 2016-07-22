@@ -17,7 +17,7 @@ class TestHandler(tornado.web.RequestHandler):
 def make_app():
     settings = {"static_path": os.path.join(os.path.dirname(__file__), "")}
     return tornado.web.Application([
-        (r"/", MainHandler),(r"/Norsonic", NorsonicHandler),(r"/test",TestHandler)
+        (r"/", MainHandler), (r"/Norsonic", NorsonicHandler), (r"/test", TestHandler), (r"/js/(.*)", tornado.web.StaticFileHandler, {"path": "./js"}), (r"/images/(.*)", tornado.web.StaticFileHandler, {"path": "./images"}), (r"/(.*)", tornado.web.StaticFileHandler, {"path": "./"}),
     ], **settings)
 
 if __name__ == "__main__":
