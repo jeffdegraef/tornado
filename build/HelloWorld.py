@@ -15,10 +15,11 @@ class TestHandler(tornado.web.RequestHandler):
         self.render("indexTest.html")
 
 def make_app():
-    settings = {"static_path": os.path.join(os.path.dirname(__file__), "")}
+    # settings = {"static_path": os.path.join(os.path.dirname(__file__), "")}
     return tornado.web.Application([
-        (r"/", MainHandler), (r"/Norsonic", NorsonicHandler), (r"/test", TestHandler), (r"/js/(.*)", tornado.web.StaticFileHandler, {"path": "./js"}), (r"/images/(.*)", tornado.web.StaticFileHandler, {"path": "./images"}), (r"/(.*)", tornado.web.StaticFileHandler, {"path": "./"}),
-    ], **settings)
+        #(r"/", MainHandler), (r"/Norsonic", NorsonicHandler), (r"/test", TestHandler), (r"/js/(.*)", tornado.web.StaticFileHandler, {"path": "./js"}), (r"/images/(.*)", tornado.web.StaticFileHandler, {"path": "./images"}), (r"/(.*)", tornado.web.StaticFileHandler, {"path": "./"}),
+        (r"/", MainHandler), (r"/Norsonic", NorsonicHandler), (r"/test", TestHandler), (r"/assets/(.*)", tornado.web.StaticFileHandler, {"path": "./assets"}), (r"/css/(.*)", tornado.web.StaticFileHandler, {"path": "./css"}), (r"/docs/(.*)", tornado.web.StaticFileHandler, {"path": "./docs"}), (r"/fonts/(.*)", tornado.web.StaticFileHandler, {"path": "./fonts"}), (r"/js/(.*)", tornado.web.StaticFileHandler, {"path": "./js"}), (r"/(.*)", tornado.web.StaticFileHandler, {"path": "./"}),
+    ])
 
 if __name__ == "__main__":
     app = make_app()
