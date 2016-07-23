@@ -4,56 +4,7 @@
 var React = require('react');
 var ReactDOM = require('react-dom');
 
-/**
-var MainFrame = React.createClass({
-  render: function() {
-    return (
-      <div className="commentBox">
-        <h1>Comments</h1>
-        <Header />
-        <Footer />
-      </div>
-    );
-  }
-});
 
-var Header = React.createClass({
-  render: function() {
-    return (
-      <div className="commentList">
-        Hello, world! I am a CommentList.
-      </div>
-    );
-  }
-});
-
-var Footer = React.createClass({
-  render: function() {
-    return (
-      <div className="commentForm">
-        Hello, world! I am a CommentForm.
-      </div>
-    );
-  }
-});
-
-
-
-var testMessage = React.createClass({
-  render: function() {
-    return <h1>Hello {this.props.name}</h1>;
-  }
-});
- */
-
-
-var CommentList = React.createClass({
-  render: function()
-  {
-    return (
-        <div>Hello</div>)
-  }
-});
 
 var HeaderMainApp = React.createClass(
     {
@@ -361,18 +312,18 @@ var ThePackagesMainApp = React.createClass(
                                     <div className="price-container blue-bg white-text">
                                         <div style={{"background-image": 'url("static/images/sdcard.png")',"background-repeat": 'no-repeat',"margin-left":'10px'}}>
                                             <br>
-                                            <h5>Version 1.8.6<br>Release date<br>2016 march 21</h5>
-                                            <br><br><br><br><br>
+                                            <h5>Version 1.8.6<br>Release date</br>br>2016 march 21</h5>
+                                            <br></br><br></br></br>
                                         </div>
                                     </div>
                                     <button id="button_download_package2" className="btn btn-primary custom-button-ttb blue-btn">Download</button>
                                 <div id ="package2" className="pack-form">
                                         <input type="hidden" name="usingAJAX" value="false" />
-                                        <input type="text" id="email_package2" placeholder="Please enter email" className="form-control input-text-ttb input-box" style='margin-top: 10px;border-style:solid' name="email">
+                                        <input type="text" id="email_package2" placeholder="Please enter email" className="form-control input-text-ttb input-box" style='margin-top: 10px;border-style:solid' name="email"></input>
                                         <button id="button_submit_package2" className="btn btn-primary custom-button-ttb red-btn">Download</button>
                                 </div>
                                 <script>
-                                    $( document ).ready( function() {
+                                    {$( document ).ready( function() {
                                         $('#package2').hide();
                                     });
                                     $('#button_download_package2').click(function(){
@@ -383,7 +334,7 @@ var ThePackagesMainApp = React.createClass(
                                             $.get( "HandlerMailingList", $("#email_package2"),function(){
                                             window.location.href = "downloadCustomerBrochure.html";
                                         });
-                                    });
+                                    });}
                                 </script>
                                 </div>
                             </div>
@@ -437,6 +388,7 @@ var ReactMainApp = React.createClass(
 
         }
     });
+            
 var theApp = React.createElement(ReactMainApp);
 //var theApp = React.createElement(ReactMainApp);
 var myMainApp = ReactDOM.render(theApp, document.getElementById('react-application'));
