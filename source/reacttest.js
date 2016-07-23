@@ -69,7 +69,7 @@ var TheIdeaMainApp = React.createClass(
                                             <p>
                                             It allows anyone to graphically configure sound measurements using Norsonic devices from a simple web-browser.
                                             </p>
-                                            <img style={{"width":'500px',"margin-top":'15px',"margin-bottom":'15px',"margin-left":'20px'}} src="static/images/node-red-screenshot.png" className="responsive-logo"/><br/>
+                                            <img style={{"width":'500px',"margin-top":'15px',"margin-bottom":'15px',"margin-left":'20px'}} src="images/node-red-screenshot.png" className="responsive-logo"/><br/>
                                         </div>
                                 </div>
 
@@ -78,7 +78,7 @@ var TheIdeaMainApp = React.createClass(
                                 <div className="row">
                                     <div className="col-lg-6 col-sm-5 column">
                                         <div className="big-intro wow fadeInLeft animated" data-wow-offset="30" data-wow-duration="1.5s" data-wow-delay="0.15s">
-                                            <img border='1' style={{"border":'5px solid #ccc'}} src="static/images/ttb.jpg" className="responsive-logo"/>
+                                            <img border='1' style={{"border":'5px solid #ccc'}} src="   images/ttb.jpg" className="responsive-logo"/>
                                         </div>
                                     </div>
                                     <div className="skills wow fadeInRight animated" data-wow-offset="30" data-wow-duration="1.5s" data-wow-delay="0.15s">

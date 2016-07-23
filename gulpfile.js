@@ -20,3 +20,12 @@ return browserify('./source/test.js')
 .pipe(source('test.js'))
 .pipe(gulp.dest('./build/'));
 });
+
+gulp.task('react', function () {
+return browserify('./source/reacttest.js')
+.transform(babelify.configure({
+  presets: ["react"]
+})).bundle()
+.pipe(source('reacttest.js'))
+.pipe(gulp.dest('./build/'));
+});
