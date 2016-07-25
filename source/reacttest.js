@@ -5,6 +5,18 @@ var React = require('react');
 var ReactDOM = require('react-dom');
 
 
+var TheLoadingMainApp = React.createClass(
+    {
+        render: function()
+        {
+            console.info("rendering TheLoadingMainApp");
+            return (
+                <div class="preloader">
+                    <div class="status">&nbsp;</div>
+                </div>
+            )
+        }
+    });
 
 var HeaderMainApp = React.createClass(
     {
@@ -78,7 +90,7 @@ var TheIdeaMainApp = React.createClass(
                                 <div className="row">
                                     <div className="col-lg-6 col-sm-5 column">
                                         <div className="big-intro wow fadeInLeft animated" data-wow-offset="30" data-wow-duration="1.5s" data-wow-delay="0.15s">
-                                            <img border='1' style={{"border":'5px solid #ccc'}} src="   images/ttb.jpg" className="responsive-logo"/>
+                                            <img border='1' style={{"border":'5px solid #ccc'}} src="images/ttb.jpg" className="responsive-logo"/>
                                         </div>
                                     </div>
                                     <div className="skills wow fadeInRight animated" data-wow-offset="30" data-wow-duration="1.5s" data-wow-delay="0.15s">
@@ -271,20 +283,20 @@ var TheBuildMainApp = React.createClass(
             console.info("rendering TheBuildMainApp");
             return (
                 <section id="packagestable" className="the-idea"  style={{"padding-top":'100px'}}>
-                    <div classPath="container">
-                        <div classPath="section-header">
-                            <h2 classPath="text">How to get a Norsonic sound measurement solution</h2>
-                            <h6 classPath="white-text">
+                    <div className="container">
+                        <div className="section-header">
+                            <h2 className="text">How to get a Norsonic sound measurement solution</h2>
+                            <h6 className="white-text">
                                 It could not be easier
                             </h6>
                         </div>
-                        <div classPath="row">
-                            <div classPath="col-lg-6 col-sm-5 column">
-                                <h2 classPath="big-intro wow fadeInLeft animated" data-wow-offset="30" data-wow-duration="1.5s" data-wow-delay="0.15s">
+                        <div className="row">
+                            <div className="col-lg-6 col-sm-5 column">
+                                <h2 className="big-intro wow fadeInLeft animated" data-wow-offset="30" data-wow-duration="1.5s" data-wow-delay="0.15s">
                                     Build your Sound measurement box configuration ...
                                 </h2>
                             </div>
-                            <div classPath="skills wow fadeInRight animated" data-wow-offset="30" data-wow-duration="1.5s" data-wow-delay="0.15s">
+                            <div className="skills wow fadeInRight animated" data-wow-offset="30" data-wow-duration="1.5s" data-wow-delay="0.15s">
                                 <p>Just Just fill in this form and provide us the details of your requirements, the form can be found <a href="#documentation">here</a>.</p>
                                 <p>Use the links below to download our datasheets and reference cases.</p>
                             </div>
@@ -294,7 +306,22 @@ var TheBuildMainApp = React.createClass(
             )
         }
     });
-/*
+
+/* todo
+$( document ).ready( function() {
+    $('#package2').hide();
+});
+$('#button_download_package2').click(function(){
+    $(this).hide();
+    $('#package2').show();
+});
+$('#button_submit_package2').click(function(event){
+        $.get( "HandlerMailingList", $("#email_package2"),function(){
+        window.location.href = "downloadCustomerBrochure.html";
+    });
+});
+
+ */
 var ThePackagesMainApp = React.createClass(
     {
         render: function()
@@ -304,47 +331,313 @@ var ThePackagesMainApp = React.createClass(
                 	<section className="packages">
                         <div className="container">
                             <div className="row">
-                            <div className="col-lg-3 col-sm-3">
-                                <div className="package wow fadeInLeft animated" data-wow-offset="30" data-wow-duration="1.5s" data-wow-delay="0.15s">
-                                    <div className="package-header blue-bg">
-                                        <h3>Cutomer brochure</h3>
-                                    </div>
-                                    <div className="price-container blue-bg white-text">
-                                        <div style={{"background-image": 'url("static/images/sdcard.png")',"background-repeat": 'no-repeat',"margin-left":'10px'}}>
-                                            <br>
-                                            <h5>Version 1.8.6<br>Release date</br>br>2016 march 21</h5>
-                                            <br></br><br></br></br>
+                                <div className="col-lg-3 col-sm-3">
+                                    <div className="package wow fadeInLeft animated" data-wow-offset="30" data-wow-duration="1.5s" data-wow-delay="0.15s">
+                                        <div className="package-header blue-bg">
+                                            <h3>Cutomer brochure</h3>
                                         </div>
+                                        <div className="price-container blue-bg white-text">
+                                            <div style={{"background-image": 'url("images/sdcard.png")',"background-repeat": 'no-repeat',"margin-left":'10px'}}>
+                                                <br/>
+                                                <h5>Version 1.8.6<br/>Release date<br/>2016 march 21</h5>
+                                                <br/><br/><br/><br/><br/>
+                                            </div>
+                                        </div>
+                                        <button id="button_download_package2" className="btn btn-primary custom-button-ttb blue-btn">Download</button>
+                                    <div id ="package2" className="pack-form">
+                                            <input type="hidden" name="usingAJAX" value="false" />
+                                            <input type="text" id="email_package2" placeholder="Please enter email" className="form-control input-text-ttb input-box" style={{"margin-top": '10px',"border-style":'solid'}} name="email"></input>
+                                            <button id="button_submit_package2" className="btn btn-primary custom-button-ttb red-btn">Download</button>
                                     </div>
-                                    <button id="button_download_package2" className="btn btn-primary custom-button-ttb blue-btn">Download</button>
-                                <div id ="package2" className="pack-form">
-                                        <input type="hidden" name="usingAJAX" value="false" />
-                                        <input type="text" id="email_package2" placeholder="Please enter email" className="form-control input-text-ttb input-box" style='margin-top: 10px;border-style:solid' name="email"></input>
-                                        <button id="button_submit_package2" className="btn btn-primary custom-button-ttb red-btn">Download</button>
+                                    <script>
+
+                                    </script>
+                                    </div>
                                 </div>
-                                <script>
-                                    {$( document ).ready( function() {
-                                        $('#package2').hide();
-                                    });
-                                    $('#button_download_package2').click(function(){
-                                        $(this).hide();
-                                        $('#package2').show();
-                                    });
-                                    $('#button_submit_package2').click(function(event){
-                                            $.get( "HandlerMailingList", $("#email_package2"),function(){
-                                            window.location.href = "downloadCustomerBrochure.html";
-                                        });
-                                    });}
-                                </script>
-                                </div>
-                            </div>
                             </div>
                         </div>
                     </section>
-                )
+            )
         }
     });
-*/
+
+var TheTSAMainApp = React.createClass(
+    {
+        render: function()
+        {
+            console.info("rendering TheTSAMainApp");
+            return (
+                <section id="what" className="the-idea-onwhite" style={{"padding-top": '50px', "padding-bottom": '50px', "background-color": '#FFF'}}>
+                    <div className="container">
+                        <div className="row">
+                            <div className="col-lg-6 col-sm-5 column">
+                                <h2 className="big-intro wow fadeInLeft animated" data-wow-offset="30" data-wow-duration="1.5s" data-wow-delay="0.15s">
+                                    ... come buy one!
+                                </h2>
+                                <p>You can buy an already built Norsonic measurement box via our webshop.</p>
+                                <br/><br/>
+                                <a href='http://www.norsonic.be/' target ='tsa'>
+                                    <img src="images/logo_Norsonic_Benelux.png" className="responsive-logo" width='500'/>
+                                </a>
+                            </div>
+                            <div className="skills wow fadeInRight animated" data-wow-offset="30" data-wow-duration="1.5s" data-wow-delay="0.15s">
+                                <p>
+                                We are a Norsonic certified partner able to help you to take sound measurement to the next level.
+                                </p>
+                                <p>
+                                All components are wired in a solid box, ready to plug and play, with its user guide and tutorials illustrating each example.
+                                The package also contains an Internet access modem, a sound cable, a solar power option.
+                                </p>
+                                <br/>
+                                <p>
+                                    Read more about it here: <a href='http://www.norsonic.be/' target ='tsa' style={{"text-decoration":'none'}}>Norsonic Benelux</a>.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            )
+        }
+    });
+
+var TheDocumentationMainApp = React.createClass(
+    {
+        render: function()
+        {
+            console.info("rendering TheDocumentationMainApp");
+            return (
+                <section className="features" id="documentation" style={{"padding-top":'100px'}}>
+                    <div className="container">
+                        <div className="section-header">
+                            <h2 className="white-text">Documentation</h2>
+                            <h6 className="white-text">
+                                Need some help? Get the documentation!
+                            </h6>
+                        </div>
+                        <div className="row">
+                            <div className="col-md-6 col-sm-6 wow fadeInLeft animated" data-wow-offset="30" data-wow-duration="1.5s" data-wow-delay="0.15s">
+                                <div className="feature">
+                                    <a target="_blank" href="docs/whatsnew.html" style={{"text-decoration": 'none'}}>
+                                    <div className="feature-icon">
+                                        <i className="icon-file-text"></i>
+                                    </div>
+                                        <h6 className="white-text">What's New</h6>
+                                        <p className="white-text">
+                                            Discover what's new in the last release.
+                                        </p>
+                                    </a>
+                                </div>
+                            </div>
+                            <xdiv className="col-md-6 col-sm-6 wow fadeInLeft animated" data-wow-offset="30" data-wow-duration="1.5s" data-wow-delay="0.15s">
+                                <div className="feature">
+                                    <a target="_blank" href="docs/faq.html" style={{"text-decoration": 'none'}}>
+                                        <div className="feature-icon">
+                                            <i className="icon-file-text"></i>
+                                        </div>
+                                        <h6 className="white-text">FAQ</h6>
+                                        <p className="white-text">
+                                            Consult the Frequently Asked Questions.
+                                        </p>
+                                    </a>
+                                </div>
+                            </xdiv>
+                            <div className="col-md-6 col-sm-6 wow fadeInRight animated" data-wow-offset="30" data-wow-duration="1.5s" data-wow-delay="0.15s">
+                                <div className="feature">
+                                    <a target="_blank" href="docs/index.html" style={{"text-decoration": 'none'}}>
+                                        <div className="feature-icon">
+                                            <i className="icon-file-text"></i>
+                                        </div>
+                                        <h6 className="white-text">The Norsonic documentation</h6>
+                                        <p className="white-text">
+                                            All the steps to buy a Norsonic Sound Measurement box, prepare it and to enjoy tutorials!
+                                        </p>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            )
+        }
+    });
+
+var TheDonateMainApp = React.createClass(
+    {
+        render: function()
+        {
+            console.info("rendering TheDonateMainApp");
+            return (
+                <section className="the-idea" style={{"padding-top": '100px',"padding-bottom": '50px'}}>
+                    <div className="container">
+                        <div className="row">
+                            <div className="col-lg-6 col-sm-5 column">
+                                <div className="big-intro wow fadeInLeft animated" data-wow-offset="30" data-wow-duration="1.5s" data-wow-delay="0.15s">
+                                    Pay a beer<br/>to the Norsonic team !
+                                </div>
+                            </div>
+                                <div className="skills wow fadeInRight animated" data-wow-offset="30" data-wow-duration="1.5s" data-wow-delay="0.15s">
+                                <h4>Let us know were me can meet up and discuss how we can help you out!</h4>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            )
+        }
+    });
+
+/* ToDo TheNewsletterMainApp in script tag
+
+    $('#newsletterform').submit(function(event){
+
+        var $this = $(this);
+        $this.hide();
+        // we want to submit the form using Ajax (prevent page refresh)
+        event.preventDefault();
+
+        // this is where your validation code (if any) would go
+
+        // this tells the server-side process that Ajax was used
+        $('input[name="usingAJAX"]',this).val( 'true' );
+        // store reference to the form
+        //var $this = $(this);
+        // prepare the form data to send
+        var dataToSend = $this.serialize();
+        // the callback function that tells us what the server-side process had to say
+        var callback = function(dataReceived){
+            // hide the form (thankfully we stored a reference to it)
+            //$this.hide();
+        // in our case the server returned an HTML snippet so just append it to the DOM
+        // expecting: <div id="result">Your favorite food is pizza! Thanks for telling us!</div>
+            $('#newsletterresult').html(dataReceived)
+        };
+    // now send the form and wait to hear back
+    $.get( "HandlerMailingList", dataToSend, callback, 'html' )
+    }); // close .submit()
+ */
+
+var TheNewsletterMainApp = React.createClass(
+    {
+        render: function()
+        {
+            console.info("rendering TheNewsletterMainApp");
+            return (
+                <section id="contact" className="newsletter" style={{"padding-top": '100px'}}>
+                    <div className="container">
+                        <h2 className="white-text wow fadeInLeft animated" data-wow-offset="30" data-wow-duration="1.5s" data-wow-delay="0.15s">Keep in touch</h2>
+                        <div className="sub-heading white-text wow fadeInRight animated" data-wow-offset="30" data-wow-duration="1.5s" data-wow-delay="0.15s">
+                             Sign up for (unfrequent) email Updates or News
+                        </div>
+                        <div id='newsletterresult'>
+                            <h2 className="orange-text"></h2>
+                        </div>
+                        <form id="newsletterform" className="subscription wow fadeInLeft animated" data-wow-offset="30" data-wow-duration="1.5s" data-wow-delay="0.15s" role="form">
+                            <input type="hidden" name="usingAJAX" value="false" />
+                            <input type="email" placeholder="Enter email" className="form-control input-box" name="email"/>
+                            <button className="btn btn-primary custom-button red-btn">Sign Up</button>
+                        </form>
+                        <script>
+                        </script>
+                    </div>
+                </section>
+            )
+        }
+    });
+
+/* ToDo in script TheContactUsMainApp
+/* ToDo in script TheContactUsMainApp
+			$('#contactform').submit(function(event){
+
+				var $this = $(this);
+				$this.hide();
+
+				// we want to submit the form using Ajax (prevent page refresh)
+				event.preventDefault();
+
+				// this is where your validation code (if any) would go
+
+				// this tells the server-side process that Ajax was used
+				$('input[name="usingAJAX"]',this).val( 'true' );
+				// store reference to the form
+				var $this = $(this);
+				// prepare the form data to send
+				var dataToSend = $this.serialize();
+				// the callback function that tells us what the server-side process had to say
+				var callback = function(dataReceived){
+					// hide the form (thankfully we stored a reference to it)
+					$this.hide();
+					// in our case the server returned an HTML snippet so just append it to the DOM, expecting: <div id="result">Your favorite food is pizza!</div>
+					$('#contactresult').html(dataReceived)
+				};
+				// type of data to receive (in our case we're expecting an HTML snippet)
+				var typeOfDataToReceive = 'html';
+				// now send the form and wait to hear back
+				$.get( "HandlerForm", dataToSend, callback, typeOfDataToReceive )
+			}); // close .submit()
+ */
+
+var TheContactUsMainApp = React.createClass(
+    {
+        render: function()
+        {
+            console.info("rendering TheContactUsMainApp");
+            return (
+                <section className="contact-us" style={{"padding-top": '100px'}}>
+                    <div className="container">
+                            <div className="section-header">
+                                <h2 className="white-text">Get in touch</h2>
+                                <h6 className="white-text">
+                                    Have any questions? Drop us a message. We will get back to you as soon as possible.
+                                </h6>
+                            </div>
+                            <div className="row">
+                                <div id='contactresult'><h2 className="orange-text"></h2></div>
+                                <form id="contactform" className="contact-form" method="get">
+                                    <input type="hidden" name="usingAJAX" value="false" />
+                                    <div className="wow fadeInLeft animated" data-wow-offset="30" data-wow-duration="1.5s" data-wow-delay="0.15s">
+                                        <div className="col-lg-4 col-sm-4">
+                                            <input type="text" name="name" placeholder="Your Name" className="form-control input-box" required/>
+                                        </div>
+                                        <div className="col-lg-4 col-sm-4">
+                                            <input type="email" name="email" placeholder="Your Email" className="form-control input-box" required/>
+                                        </div>
+                                        <div className="col-lg-4 col-sm-4">
+                                            <input type="text" name="subject" placeholder="Subject" className="form-control input-box" required/>
+                                        </div>
+                                    </div>
+                                    <div className="clearfix">
+                                        <div className="col-md-12 wow fadeInRight animated" data-wow-offset="30" data-wow-duration="1.5s" data-wow-delay="0.15s">
+                                            <textarea name="message" className="form-control textarea-box" placeholder="Your Message" required></textarea>
+                                        </div>
+                                    </div>
+                                    <button className="btn btn-primary custom-button red-btn wow fadeInLeft animated" id="submit" data-wow-offset="30" data-wow-duration="1.5s" data-wow-delay="0.15s" type="submit">Send Message</button>
+                                </form>
+                                <script>
+                                </script>
+                            </div>
+                    </div>
+                </section>
+            )
+        }
+    });
+
+var TheFooterMainApp = React.createClass(
+    {
+        render: function()
+        {
+            console.info("rendering TheFooterMainApp");
+            return (
+                <footer>
+                    <div className="container">
+                        <a className="white-text" target="_blank" href="http://www.norsonic.be/">
+                            © Norsonic Belgium
+                        </a>
+                    </div>
+                    <br/>
+                </footer>
+            )
+        }
+    });
+
 /**
  *
  * @type {ClassicComponentClass<P>}
@@ -383,6 +676,13 @@ var ReactMainApp = React.createClass(
                     <TheIdeaMainApp/>
                     <TestimonialMainApp/>
                     <TheBuildMainApp/>
+                    <ThePackagesMainApp/>
+                    <TheTSAMainApp/>
+                    <TheDocumentationMainApp/>
+                    <TheDonateMainApp/>
+                    <TheNewsletterMainApp/>
+                    <TheContactUsMainApp/>
+                    <TheFooterMainApp/>
                 </div>
             );
 
