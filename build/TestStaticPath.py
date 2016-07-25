@@ -19,14 +19,14 @@ def make_app():
         (r"/", MainHandler),
         (r"/Norsonic", NorsonicHandler),
         (r"/test", TestHandler),
-        (r"/assets/(.*)", tornado.web.StaticFileHandler, {"path": "./assets"}),
-        (r"/css/(.*)", tornado.web.StaticFileHandler, {"path": "./css"}),
-        (r"/docs/(.*)", tornado.web.StaticFileHandler, {"path": "./docs"}),
-        (r"/fonts/(.*)", tornado.web.StaticFileHandler, {"path": "./fonts"}),
-        (r"/images/(.*)", tornado.web.StaticFileHandler, {"path": "./images"}),
-        (r"/jqueryui/(.*)", tornado.web.StaticFileHandler, {"path": "./jqueryui"}),
-        (r"/js/(.*)", tornado.web.StaticFileHandler, {"path": "./js"}),
-        (r"/(.*)", tornado.web.StaticFileHandler, {"path": "./"}),
+        (r"/assets/(.*)", tornado.web.StaticFileHandler, {"path": os.path.join(os.path.dirname(__file__), "./assets")}),
+        (r"/css/(.*)", tornado.web.StaticFileHandler, {"path": os.path.join(os.path.dirname(__file__), "./css")}),
+        (r"/docs/(.*)", tornado.web.StaticFileHandler, {"path": os.path.join(os.path.dirname(__file__), "./docs")}),
+        (r"/fonts/(.*)", tornado.web.StaticFileHandler, {"path": os.path.join(os.path.dirname(__file__), "./fonts")}),
+        (r"/images/(.*)", tornado.web.StaticFileHandler, {"path": os.path.join(os.path.dirname(__file__), "./images")}),
+        (r"/jqueryui/(.*)", tornado.web.StaticFileHandler, {"path": os.path.join(os.path.dirname(__file__), "./jqueryui")}),
+        (r"/js/(.*)", tornado.web.StaticFileHandler, {"path": os.path.join(os.path.dirname(__file__), "./js")}),
+        (r"/(.*)", tornado.web.StaticFileHandler, {"path": os.path.join(os.path.dirname(__file__), "./")}),
     ],**settings)
 
 if __name__ == "__main__":
