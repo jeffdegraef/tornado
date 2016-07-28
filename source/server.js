@@ -3,7 +3,7 @@
  */
 var React = require('react')
 var ReactDOM = require('react-dom')
-var App = require('./components/ReactMainApp')
+var App = require('./components/MainApp')
 var logger = require('./lib/logger')
 
 logger.log('In Server.js');
