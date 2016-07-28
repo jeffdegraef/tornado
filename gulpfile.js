@@ -12,20 +12,12 @@ return browserify('./source/app.js')
 .pipe(gulp.dest('./build/'));
 });
 
-gulp.task('test', function () {
-return browserify('./source/test.js')
-.transform(babelify.configure({
-  presets: ["react"]
-})).bundle()
-.pipe(source('test.js'))
-.pipe(gulp.dest('./build/'));
-});
 
-gulp.task('react', function () {
-return browserify('./source/reacttest.js')
+gulp.task('server', function () {
+return browserify('./source/server.js')
 .transform(babelify.configure({
   presets: ["react"]
 })).bundle()
-.pipe(source('reacttest.js'))
+.pipe(source('server.js'))
 .pipe(gulp.dest('./build/'));
 });
