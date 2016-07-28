@@ -23,6 +23,7 @@ var ReactClass = React.createClass(
         {
             var boundClick = this.handleClick.bind(this);
             var headerElement = React.createElement('h1',{className: 'header',key:'header'},this.state.title);
+            //var buttonElement = React.createElement('button',{className:'btn btn-default',onClick:boundClick, key: 'button'},'toggle header');
             var buttonElement = React.createElement('button',{className:'btn btn-default',onClick:boundClick, key: 'button'},'toggle header');
             if (this.state.isHeaderHidden)
             {
