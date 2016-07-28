@@ -6,5 +6,5 @@ var ReactDOM = require('react-dom')
 var App = require('./components/ReactMainApp')
 var logger = require('./lib/logger')
 
-logger.log('In Start.js');
+logger.log('In Server.js');
 ReactDOM.render(<App/>, document.getElementById('react-application'));
