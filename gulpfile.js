@@ -3,6 +3,7 @@ var browserify = require('browserify');
 var babelify = require('babelify');
 var source = require('vinyl-source-stream');
 
+/*
 gulp.task('default', function () {
 return browserify('./source/app.js')
 .transform(babelify.configure({
@@ -11,9 +12,9 @@ return browserify('./source/app.js')
 .pipe(source('snapterest.js'))
 .pipe(gulp.dest('./build/'));
 });
+*/
 
-
-gulp.task('server', function () {
+gulp.task('default', function () {
 return browserify('./source/server.js')
 .transform(babelify.configure({
   presets: ["react"]
@@ -21,3 +22,13 @@ return browserify('./source/server.js')
 .pipe(source('server.js'))
 .pipe(gulp.dest('./build/'));
 });
+
+gulp.task('old', function () {
+return browserify('./source/server_old.js')
+.transform(babelify.configure({
+  presets: ["react"]
+})).bundle()
+.pipe(source('server.js'))
+.pipe(gulp.dest('./build/'));
+});
+
