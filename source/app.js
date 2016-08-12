@@ -11,7 +11,7 @@ var ReactClass = React.createClass(
             console.info("Initializing...");
             return {
             isHeaderHidden: false,
-            title: 'statefull react component'
+            title: 'statefull react component test'
             };
         },
         handleClick: function ()
@@ -35,4 +35,4 @@ var ReactClass = React.createClass(
     });
 
 var reactComponentElement = React.createElement(ReactClass);
-var reactComponent = ReactDOM.render(reactComponentElement, document.getElementById('react-application'));
+var reactComponent = ReactDOM.render(reactComponentElement, document.getElementById('application'));

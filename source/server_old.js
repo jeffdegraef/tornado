@@ -530,7 +530,7 @@ var TheNewsletterMainApp = React.createClass(
         }
     });
 
-/* ToDo in script TheContactUsMainApp
+
 /* ToDo in script TheContactUsMainApp
 			$('#contactform').submit(function(event){
 
