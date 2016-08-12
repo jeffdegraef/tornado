@@ -14,7 +14,7 @@ var TheDonateMainApp = require('./TheDonateMainApp')
 var TheNewsletterMainApp = require('./TheNewsletterMainApp')
 var TheContactUsMainApp = require('./TheContactUsMainApp')
 var TheFooterMainApp = require('./TheFooterMainApp')
-//var TheChatMainApp = require('./TheChatMainApp')
+var TheChatMainApp = require('./TheChatMainApp')
 
 module.exports = React.createClass(
     {
