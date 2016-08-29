@@ -13,7 +13,7 @@ gulp.task('build', function ()
   return browserify('./source/server.js')
   .transform(babelify.configure(
       {
-        presets: ["react"]
+        presets: ["es2015", "react"]
       })).bundle()
 .pipe(source('server.js'))
 .pipe(gulp.dest('./build/'));
