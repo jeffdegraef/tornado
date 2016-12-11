@@ -13,20 +13,20 @@ module.exports  = React.createClass(
             return (
                 <section className="the-chat" style={{"background":'#605F5D'}}>
                     <div className="container">
-                        <div className="row">
-                            <div className="col-lg-6 col-sm-5 column">
-                                <div className="big-intro wow fadeInLeft animated" data-wow-offset="30" data-wow-duration="1.5s" data-wow-delay="0.15s">
-                                    Temperature in my house:
-                                </div>
-                            </div>
-                            <div className="skills wow fadeInRight animated" data-wow-offset="30" data-wow-duration="1.5s" data-wow-delay="0.15s">
-                                <h4>{this.props.temperature}</h4>
-                            </div>
+                        <div className="big-intro wow fadeInLeft animated" data-wow-offset="30" data-wow-duration="1.5s" data-wow-delay="0.15s">
+                            <h1 className="intro" style={{"color": '#FFF'}}>
+                                Temperature in my house:
+                            </h1><br/>
+                            <h3 className="white-text">
+                                {this.props.temperature} degrees and {this.props.humidity} humidity
+                            </h3>
+                            <br/>
                         </div>
                     </div>
                 </section>
             )
         }
     });
+
 
 
