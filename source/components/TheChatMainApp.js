@@ -18,7 +18,7 @@ module.exports  = React.createClass(
                                 Temperature in my house:
                             </h1><br/>
                             <h3 className="white-text">
-                                {this.props.temperature} degrees and {this.props.humidity} humidity
+                                {this.props.temperature} test and {this.props.humidity} humidity
                             </h3>
                             <br/>
                         </div>

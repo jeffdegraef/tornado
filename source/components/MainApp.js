@@ -1,5 +1,6 @@
 /**
  * Created by jeff on 28/07/2016.
+ * this is the main app
  */
 var React = require('react');
 var ReactDOM = require('react-dom');
