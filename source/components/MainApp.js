@@ -30,7 +30,7 @@ module.exports = React.createClass(
         getInitialState: function() {
             console.info("In Initial Stage");
             return {
-                temperature: '22.0',
+                temperature: '25.0',
                 humidity: '30.0'
             };
         },
