@@ -70,7 +70,9 @@ module.exports = React.createClass(
 
                 function ontemperature (args) {
                    var msg = args[0];
-                    console.info("messsage received temperature: " + msg);
+                   var array = args[1];
+                    console.info("messsage test received temperature: " + msg);
+                    console.info("array received temperature: " + array);
                    component.setState({temperature: msg});
                 }
 
