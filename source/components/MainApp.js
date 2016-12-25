@@ -31,7 +31,8 @@ module.exports = React.createClass(
             console.info("In Initial Stage");
             return {
                 temperature: '25.0',
-                humidity: '30.0'
+                humidity: '30.0',
+                sensorinput: ''
             };
         },
         componentDidMount: function() {
@@ -75,6 +76,7 @@ module.exports = React.createClass(
                     console.info("messsage test received temperature: " + msg);
                     console.info("array received temperature: " + array);
                    component.setState({temperature: msg});
+                    component.setState({sensorinput: array});
                 }
 
 
@@ -111,7 +113,7 @@ module.exports = React.createClass(
             return (
                 <div className="FullApp">
                     <HeaderMainApp/>
-                    <TheChatMainApp temperature={this.state.temperature} humidity={this.state.humidity}/>
+                    <TheChatMainApp temperature={this.state.temperature} humidity={this.state.humidity} sensorinput={this.state.sensorinput}/>
                     <TheIdeaMainApp/>
                     <TestimonialMainApp/>
                     <TheBuildMainApp/>
