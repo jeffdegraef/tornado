@@ -6,6 +6,13 @@ var ReactDOM = require('react-dom');
 var autobahn = require('autobahn');
 
 
+const content = this.props.sensorinput.map((post) =>
+    <div key={post.id}>
+      <h3>{post.NodeIDName}</h3>
+      <p>{post.Variable1}</p>
+    </div>
+  );
+
 module.exports  = React.createClass(
     {
         render: function()
@@ -21,6 +28,9 @@ module.exports  = React.createClass(
                             <h3 className="white-text">
                                 {this.props.temperature} degrees and {this.props.humidity} humidity
                             </h3>
+                            <br/>
+                                {content}
+                            <br/>
                         </div>
                     </div>
                 </section>

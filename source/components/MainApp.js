@@ -32,7 +32,7 @@ module.exports = React.createClass(
             return {
                 temperature: '25.0',
                 humidity: '30.0',
-                sensorinput: ''
+                sensorinput: {}
             };
         },
         componentDidMount: function() {
