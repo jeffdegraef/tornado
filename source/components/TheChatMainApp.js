@@ -1,6 +1,5 @@
 /**
  * Created by jeff on 28/07/2016.
- * Hallo
  */
 var React = require('react');
 var ReactDOM = require('react-dom');
@@ -19,7 +18,7 @@ module.exports  = React.createClass(
                                 Temperature in my house:
                             </h1><br/>
                             <h3 className="white-text">
-                                {this.props.temperature} test and {this.props.humidity} humidity
+                                {this.props.temperature} testing and {this.props.humidity} humidity
                             </h3>
                             <br/>
                         </div>

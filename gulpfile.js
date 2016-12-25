@@ -26,7 +26,14 @@ gulp.task('watch', function () {
     gulp.watch('source/components/*.js', ['default']);
 });
 
+/*
 gulp.task('default',['build','watch'], shell.task([
+  'sudo stop tornado_daemon',
+  'sudo start tornado_daemon'
+])
+);*/
+
+gulp.task('default',['build'], shell.task([
   'sudo stop tornado_daemon',
   'sudo start tornado_daemon'
 ])
