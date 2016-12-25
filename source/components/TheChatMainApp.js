@@ -6,11 +6,21 @@ var ReactDOM = require('react-dom');
 var autobahn = require('autobahn');
 
 
+
 module.exports  = React.createClass(
     {
+
         render: function()
         {
             console.info("rendering thechatmainapp");
+            /*
+            var content = this.props.sensorinput.map((post) =>
+                <div key={post.NodeID}>
+                  <h3>{post.NodeIDName}</h3>
+                  <p>{post.Variable1}</p>
+                </div>
+            );
+            */
             return (
                 <section className="the-chat" style={{"background":'#605F5D'}}>
                     <div className="container">
