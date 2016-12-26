@@ -30,8 +30,6 @@ module.exports = React.createClass(
         getInitialState: function() {
             console.info("In Initial Stage");
             return {
-                temperature: '25.0',
-                humidity: '30.0',
                 sensorinput: [{"NodeIDName": "Garage"}],
                 syncro: false
             };
@@ -76,7 +74,6 @@ module.exports = React.createClass(
                    var array = args[1];
                     console.info("messsage test received temperature: " + msg);
                     console.info("array received temperature: " + array);
-                   component.setState({temperature: msg});
                     component.setState({sensorinput: array});
                     component.setState({syncro: true});
                     console.info("syncro set to: " + this.state.syncro);
@@ -88,7 +85,6 @@ module.exports = React.createClass(
                    var array = args[1];
                     console.info("messsage received humidity: " + msg);
                     console.info("array received humidity: " + array);
-                   component.setState({humidity: msg});
                     component.setState({sensorinput: array});
                     component.setState({syncro: true});
                 }
@@ -120,7 +116,7 @@ module.exports = React.createClass(
             return (
                 <div className="FullApp">
                     <HeaderMainApp/>
-                    <TheChatMainApp temperature={this.state.temperature} humidity={this.state.humidity} syncro={this.state.syncro} sensorinput={[this.state.sensorinput]}/>
+                    <TheChatMainApp syncro={this.state.syncro} sensorinput={[this.state.sensorinput]}/>
                     <TheIdeaMainApp/>
                     <TestimonialMainApp/>
                     <TheBuildMainApp/>
