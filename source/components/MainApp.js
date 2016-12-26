@@ -32,7 +32,8 @@ module.exports = React.createClass(
             return {
                 temperature: '25.0',
                 humidity: '30.0',
-                sensorinput: {}
+                sensorinput: [{"NodeIDName": "Garage"}],
+                syncro: false
             };
         },
         componentDidMount: function() {
@@ -77,13 +78,19 @@ module.exports = React.createClass(
                     console.info("array received temperature: " + array);
                    component.setState({temperature: msg});
                     component.setState({sensorinput: array});
+                    component.setState({syncro: true});
+                    console.info("syncro set to: " + this.state.syncro);
                 }
 
 
                 function onhumidity (args) {
                    var msg = args[0];
+                   var array = args[1];
                     console.info("messsage received humidity: " + msg);
+                    console.info("array received humidity: " + array);
                    component.setState({humidity: msg});
+                    component.setState({sensorinput: array});
+                    component.setState({syncro: true});
                 }
 
                 session.subscribe('com.example.ontemperature', ontemperature).then(
@@ -113,7 +120,7 @@ module.exports = React.createClass(
             return (
                 <div className="FullApp">
                     <HeaderMainApp/>
-                    <TheChatMainApp temperature={this.state.temperature} humidity={this.state.humidity} sensorinput={this.state.sensorinput}/>
+                    <TheChatMainApp temperature={this.state.temperature} humidity={this.state.humidity} syncro={this.state.syncro} sensorinput={[this.state.sensorinput]}/>
                     <TheIdeaMainApp/>
                     <TestimonialMainApp/>
                     <TheBuildMainApp/>
