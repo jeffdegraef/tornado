@@ -34,7 +34,6 @@ gulp.task('default',['build','watch'], shell.task([
 );*/
 
 gulp.task('default',['build'], shell.task([
-  'sudo stop tornado_daemon',
-  'sudo start tornado_daemon'
+  'sudo systemctl restart tornado_daemon'
 ])
 );
