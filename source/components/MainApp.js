@@ -48,6 +48,7 @@ module.exports = React.createClass(
             var component = this
             //component.setState({temperature: 'leeg'});
 
+
             var wsuri = "ws://ec2-54-201-54-220.us-west-2.compute.amazonaws.com/:8080/ws";
 
             // the WAMP connection to the Router
