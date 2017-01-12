@@ -47,13 +47,13 @@ module.exports = React.createClass(
             var component = this
             //component.setState({temperature: 'leeg'});
 
-            var wsuri = "ws://ec2-54-200-239-15.us-west-2.compute.amazonaws.com:8080/ws";
+            var wsuri = "ws://ec2-54-201-54-220.us-west-2.compute.amazonaws.com:8080/ws";
 
             // the WAMP connection to the Router
             //
             var connection = new autobahn.Connection({
                url: wsuri,
-               realm: "realm1"
+               realm: "React"
             });
 
             // fired when connection is established and session attached
