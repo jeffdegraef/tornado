@@ -20,6 +20,7 @@ var TheChatMainApp = require('./TheChatMainApp')
 var TheTestMainApp = require('./TheTestMainApp')
 
 
+
 var data = [
   {id: 1, author: "Pete Hunt", text: "This is one comment"},
   {id: 2, author: "Jordan Walke", text: "This is *another* comment"}
@@ -47,7 +48,7 @@ module.exports = React.createClass(
             var component = this
             //component.setState({temperature: 'leeg'});
 
-            var wsuri = "ws://ec2-54-201-54-220.us-west-2.compute.amazonaws.com:8080/ws";
+            var wsuri = "ws://ec2-54-149-139-192.us-west-2.compute.amazonaws.com:8080/ws";
 
             // the WAMP connection to the Router
             //

@@ -3,7 +3,7 @@
   <component name="WebServers">
     <option name="servers">
       <webServer id="c73a9c30-0112-4ff0-915a-e889779bd7f1" name="AWS" url="http://ec2-54-201-54-220.us-west-2.compute.amazonaws.com/">
-        <fileTransfer host="ec2-54-201-54-220.us-west-2.compute.amazonaws.com" port="22" privateKey="C:\Users\Mijn PC\Downloads\Amazone.pem" accessType="SFTP" keyPair="true">
+        <fileTransfer host="ec2-54-149-139-192.us-west-2.compute.amazonaws.com" port="22" privateKey="C:\Users\Mijn PC\Downloads\Amazone.pem" accessType="SFTP" keyPair="true">
           <advancedOptions>
             <advancedOptions dataProtectionLevel="Private" />
           </advancedOptions>
